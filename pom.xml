@@ -10,6 +10,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.jboss.logging</groupId>
+            <artifactId>jboss-logging</artifactId>
+            <version>3.3.3.Final-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>org.jboss.logmanager</groupId>
             <artifactId>jboss-logmanager</artifactId>
             <version>2.1.2.Final-SNAPSHOT</version>

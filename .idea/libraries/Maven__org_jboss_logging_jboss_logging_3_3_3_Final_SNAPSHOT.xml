@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.jboss.logging:jboss-logging:3.3.3.Final-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/logging/jboss-logging/3.3.3.Final-SNAPSHOT/jboss-logging-3.3.3.Final-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/logging/jboss-logging/3.3.3.Final-SNAPSHOT/jboss-logging-3.3.3.Final-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/logging/jboss-logging/3.3.3.Final-SNAPSHOT/jboss-logging-3.3.3.Final-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
