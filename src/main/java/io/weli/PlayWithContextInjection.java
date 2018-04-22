@@ -31,7 +31,21 @@ public class PlayWithContextInjection {
         WebTarget target = client.target("http://localhost:8081/hello/uri");
         System.out.println(target.request().get(String.class));
 
+        System.out.println("");
+        System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+        System.out.println("");
+
         System.out.println(client.target("http://localhost:8081/hello/config").request().get(String.class));
+
+        System.out.println("");
+        System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+        System.out.println("");
+
+        System.out.println(client.target("http://localhost:8081/hello/factory").request().get(String.class));
+
+        System.out.println("");
+        System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+        System.out.println("");
 
         client.close();
         server.stop();

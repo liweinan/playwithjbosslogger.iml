@@ -1,6 +1,8 @@
 package io.weli;
 
 import org.jboss.resteasy.spi.ResteasyConfiguration;
+import org.jboss.resteasy.spi.ResteasyDeployment;
+import org.jboss.resteasy.spi.ResteasyProviderFactory;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -26,4 +28,11 @@ public class HelloWorldResource {
     public String config(@Context ResteasyConfiguration config) {
         return config.getInitParameter("foo");
     }
+
+    @GET
+    @Path("/factory")
+    public String config(@Context ResteasyDeployment deployment) {
+        return deployment.getProviderFactory().toString();
+    }
+
 }
