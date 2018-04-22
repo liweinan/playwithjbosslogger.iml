@@ -8,8 +8,10 @@ import org.jboss.resteasy.spi.ResteasyProviderFactory;
 
 public class GetConfigurationFromUndertow {
     public static void main(String[] args) throws Exception {
-        UndertowJaxrsServer server = new UndertowJaxrsServer().start();
 
+
+        UndertowJaxrsServer server = new UndertowJaxrsServer().start();
+//        server.stop();
 
         ResteasyDeployment deployment = new ResteasyDeployment();
         deployment.setApplicationClass(SampleApplication.class.getName());
@@ -17,12 +19,19 @@ public class GetConfigurationFromUndertow {
         di.setClassLoader(SampleApplication.class.getClassLoader());
         di.setContextPath("");
         di.setDeploymentName("Resteasy");
+        server.deploy(di);
+
+        System.out.println("");
+        System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+        System.out.println("");
 
         di.getServletContextAttributes().forEach((k, v) -> {
             System.out.println("k -> " + k + ", v -> " + v);
         });
 
-        server.deploy(di);
+        System.out.println("");
+        System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+        System.out.println("");
 
         ResteasyDeployment _deployment = (ResteasyDeployment) di.getServletContextAttributes().get(ResteasyDeployment.class.getName());
         System.out.println(_deployment);
@@ -36,10 +45,18 @@ public class GetConfigurationFromUndertow {
          */
         _deployment.getDefaultContextObjects().forEach((k, v) -> {
             System.out.println("k -> " + k + ", v -> " + v);
+            if (v instanceof ResteasyConfiguration) {
+                System.out.println(((ResteasyConfiguration) v).getParameterNames());
+                System.out.println(((ResteasyConfiguration) v).getInitParameterNames());
+            }
         });
 
+        System.out.println("");
+        System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+        System.out.println("");
 
-//        ResteasyConfiguration configuration = ResteasyProviderFactory.getContextData(ResteasyConfiguration.class);
-//        System.out.println(configuration);
+        System.out.println(ResteasyProviderFactory.getContextDataMap());
+
+        server.stop();
     }
 }
