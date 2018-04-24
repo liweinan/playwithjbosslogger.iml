@@ -14,5 +14,6 @@ public class PlayWithJBossLogger {
         System.out.println(logger);
         logger.warning("前方高能！");
         logger.info("普通消息");
+        logger.fine("调试消息");
     }
 }
