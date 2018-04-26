@@ -14,15 +14,18 @@ import java.io.IOException;
 import static org.junit.Assert.assertEquals;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
 
         UndertowJaxrsServer server;
         Client client;
-        javax.servlet.ServletException exception;
+
         System.setProperty("java.util.logging.manager", "org.jboss.logmanager.LogManager");
         LogManager.getLogManager().readConfiguration(Main.class.getClassLoader().getResourceAsStream("logging.jboss.properties"));
 
         server = new UndertowJaxrsServer().start();
+
+        Thread.sleep(1000);
+
         ResteasyDeployment deployment = new ResteasyDeployment();
 
         deployment.setApplicationClass(TracingApp.class.getName());
@@ -45,7 +48,11 @@ public class Main {
         target = client.target("http://localhost:8081/logger");
         target.request().get();
 
+        target = client.target("http://localhost:8081/io");
+        target.request().get();
+
         client.close();
+        Thread.sleep(1000);
         server.stop();
     }
 }

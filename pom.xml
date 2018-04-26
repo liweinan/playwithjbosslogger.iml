@@ -21,6 +21,7 @@
     </build>
     <properties>
         <undertow.ver>1.4.18.Final</undertow.ver>
+        <resteasy.version>4.0.0-SNAPSHOT</resteasy.version>
     </properties>
     <dependencies>
         <dependency>
@@ -46,7 +47,12 @@
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-undertow</artifactId>
-            <version>4.0.0-SNAPSHOT</version>
+            <version>${resteasy.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-jaxrs</artifactId>
+            <version>${resteasy.version}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

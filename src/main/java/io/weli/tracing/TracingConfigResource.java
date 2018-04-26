@@ -6,6 +6,7 @@ import org.jboss.resteasy.tracing.RESTEasyTracingLogger;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Application;
+import java.io.IOException;
 
 @Path("/")
 public class TracingConfigResource extends Application {
@@ -29,6 +30,12 @@ public class TracingConfigResource extends Application {
 //        logger.log(RESTEasyServerTracingEvent.METHOD_INVOKE, TracingConfigResource.class.toString(),
 //                "logger()");
         return logger.toString();
+    }
+
+    @GET
+    @Path("/io")
+    public String io() throws MyException {
+        throw new MyException();
     }
 
 }

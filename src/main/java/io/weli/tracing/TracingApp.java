@@ -12,6 +12,7 @@ public class TracingApp extends Application {
     public Set<Class<?>> getClasses() {
         Set set = new HashSet<Class<?>>();
         set.add(HttpMethodOverride.class);
+        set.add(MyExceptionMapper.class);
         return set;
     }
 
